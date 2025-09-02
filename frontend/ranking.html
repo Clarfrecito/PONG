@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>PONG - Ranking</title>
+    <link rel="stylesheet" href="styles.css" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Workbench&display=swap"
+      rel="stylesheet"
+    />
+  </head>
+  <body>
+    <header></header>
+    <main>
+      <div class="menu">
+        <h1 class="titulo1">Top 10</h1>
+        <table class="tabla">
+          <thead>
+            <tr>
+              <th>#</th>
+              <th>Nombre</th>
+              <th>Puntaje</th>
+            </tr>
+          </thead>
+          <tbody id="ranking-body"></tbody>
+        </table>
+      </div>
+      <p id="loading-message">Cargando ranking...</p>
+      <script>
+        window.addEventListener("DOMContentLoaded", () => {
+          fetchAndDisplayRanking();
+        });
+        async function fetchAndDisplayRanking() {
+          const tableBody = document.getElementById("ranking-body");
+          const loadingMessage = document.getElementById("loading-message");
+          try {
+            // 1. Hacemos la llamada a nuestra API usando la función fetch().
+            const response = await fetch("/api/ranking");
+            if (!response.ok) {
+              throw new Error("No se pudo obtener la respuesta del servidor.");
+            }
+            // 2. Convertimos la respuesta, que viene en formato JSON, a un objeto de JavaScript.
+            const rankingData = await response.json();
+            tableBody.innerHTML = "";
+            // 3. Verificamos si obtuvimos datos.
+            if (rankingData.length === 0) {
+              loadingMessage.textContent = "Aún no hay puntajes para mostrar.";
+            } else {
+              // 4. Recorremos el array de datos y creamos una fila <tr> por cada puntaje.
+              rankingData.forEach((score, index) => {
+                const row = document.createElement("tr");
+                row.innerHTML = `
+                            <td>${index + 1}</td>
+                            <td>${score.nombre}</td>
+                            <td>${score.puntaje}</td>
+                        `;
+                tableBody.appendChild(row);
+              });
+              loadingMessage.style.display = "none";
+            }
+          } catch (error) {
+            console.error("Error al obtener el ranking:", error);
+            loadingMessage.textContent =
+              "Error al cargar el ranking. Inténtalo de nuevo más tarde.";
+          }
+        }
+      </script>
+    </main>
+    <footer>
+      <a href="1player.html">
+        <img src="arrow.png" alt="flecha" id="flecha" />
+      </a>
+    </footer>
+  </body>
+</html>

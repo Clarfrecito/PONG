@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>PONG - 1 Jugador</title>
+    <link rel="stylesheet" href="styles.css" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Workbench&display=swap"
+      rel="stylesheet"
+    />
+  </head>
+  <body>
+    <header></header>
+    <main>
+      <canvas id="canvas-pong" width="800" height="600"></canvas>
+      <div id="pantalla-final" class="menu hidden">
+        <h2 id="texto-ganador"></h2>
+        <p id="texto-puntaje"></p>
+        <button id="boton-mostrar-guardar" class="boton hidden">
+          Guardar Puntuación
+        </button>
+        <a href="game1.html">
+          <button class="boton">Volver a Jugar</button>
+        </a>
+        <a href="1player.html">
+          <button class="boton">Salir</button>
+        </a>
+      </div>
+      <div id="menu-guardar-puntuacion" class="menu hidden">
+        <h2>Ingresa tu nombre</h2>
+        <input
+          type="text"
+          id="input-nombre"
+          placeholder="Tu Nickname"
+          maxlength="15"
+        />
+        <button id="boton-guardar-final" class="boton">Guardar</button>
+        <button id="boton-cancelar-guardar" class="boton">Cancelar</button>
+      </div>
+      <script type="module">
+        window.addEventListener("DOMContentLoaded", (event) => {
+          import("/scripts/game1.js").then((module) => {
+            module.iniciarPVE();
+          });
+        });
+      </script>
+    </main>
+    <footer></footer>
+  </body>
+</html>

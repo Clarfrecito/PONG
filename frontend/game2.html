@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>PONG - 2 Jugadores</title>
+    <link rel="stylesheet" href="styles.css" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Workbench&display=swap"
+      rel="stylesheet"
+    />
+  </head>
+  <body>
+    <header></header>
+    <main>
+      <canvas id="canvas-pong" width="800" height="600"></canvas>
+      <div id="pantalla-final" class="menu hidden">
+        <h1 id="texto-ganador" class="titulo2"></h1>
+        <a href="game2.html">
+          <button class="boton">Volver a Jugar</button>
+        </a>
+        <a href="2player.html">
+          <button class="boton">Salir</button>
+        </a>
+      </div>
+      <script type="module">
+        import { iniciarPVP } from "/scripts/game2.js";
+        iniciarPVP();
+      </script>
+    </main>
+    <footer></footer>
+  </body>
+</html>

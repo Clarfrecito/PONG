@@ -1,0 +1,125 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+html {
+  color: white;
+  background-color: black;
+  font-family: "Workbench", sans-serif;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+}
+.menu {
+  border: 1vh solid white;
+  border-radius: 5%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  width: auto;
+  padding-left: 5vh;
+  padding-right: 5vh;
+}
+.menu > *:first-child {
+  margin-top: 5vh;
+  margin-bottom: 2.5vh;
+}
+.menu > *:last-child {
+  margin-top: 2.5vh;
+  margin-bottom: 5vh;
+}
+.titulo {
+  font-size: 5rem;
+}
+.titulo2 {
+  font-size: 2.5rem;
+}
+.titulo3 {
+  font-size: 1.25rem;
+}
+.boton {
+  color: white;
+  background-color: black;
+  font-family: "Workbench", sans-serif;
+  font-size: 1rem;
+  border: 0.5vh solid white;
+  border-radius: 10%;
+  padding: 2vh;
+  width: 25vh;
+  text-align: center;
+  cursor: pointer;
+  text-transform: uppercase;
+  transition: all 0.2s ease-in-out;
+}
+.boton:hover {
+  color: black;
+  background-color: white;
+  transform: scale(1.1);
+}
+#JF {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  margin: 2vh;
+}
+#casa {
+  filter: drop-shadow(0vh 0vh 0.5vh white);
+  height: 10vh;
+  width: 10vh;
+  position: fixed;
+  bottom: 0;
+  right: 0;
+  margin: 2vh;
+}
+#flecha {
+  filter: drop-shadow(0vh 0vh 0.5vh white);
+  height: 10vh;
+  width: 10vh;
+  position: fixed;
+  bottom: 0;
+  right: 0;
+  margin: 2vh;
+}
+.tabla {
+  border-collapse: collapse;
+  border: 0.5vh solid white;
+}
+.tabla th,
+.tabla td {
+  padding-top: 1.5vh;
+  padding-bottom: 1.5vh;
+  padding-left: 0.5vh;
+  padding-right: 0.5vh;
+  text-align: left;
+  border-bottom: 1px solid white;
+}
+.tabla th {
+  background-color: white;
+  color: black;
+}
+#pantalla-final {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+#menu-guardar-puntuacion {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+.hidden {
+  display: none;
+}
+#boton-mostrar-guardar {
+  margin-top: 2.5vh;
+  margin-bottom: 2.5vh;
+}
+#boton-guardar-final {
+  margin-top: 2.5vh;
+}
